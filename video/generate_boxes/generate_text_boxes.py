@@ -6,14 +6,6 @@ import os
 import cv2
 
 class Text_Boxes(Service):
-    """The text box service generates directories of images, full frame and bounding boxed
-        input: video
-        output: to service_output directory
-        <filename>
-            <frame number>
-                <full frame.png>
-                <box1.png>
-                <box2.png>..."""
 
     def __init__(self,video):
         """Constructor for Text_Boxes"""
@@ -22,7 +14,7 @@ class Text_Boxes(Service):
         super().__init__(video)
 
     def run_service(self):
-        """taken from pyimagesearch"""
+        """taken from pyimagesearch, modified to get coordinates of boxes instead of drawing boxes"""
 
         def decode_predictions(scores, geometry):
             # grab the number of rows and columns from the scores volume, then
